@@ -8,24 +8,24 @@ import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
 
-    private WebView mWebView;
+    private WebView web_view;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mWebView = findViewById(R.id.webView);
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl(getResources().getString(R.string.link));
-        mWebView.setWebViewClient(new MyWebViewClient());
+        web_view = findViewById(R.id.web_layout);
+        web_view.getSettings().setJavaScriptEnabled(true);
+        web_view.loadUrl(getResources().getString(R.string.url_webview));
+        web_view.setWebViewClient(new MyWebClient());
 
         // Инициализация AppMetrica SDK
         //YandexMetrica.activate(getApplicationContext(), API_key);
 
     }
 
-    private class MyWebViewClient extends WebViewClient
+    private class MyWebClient extends WebViewClient
     {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url)
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(mWebView.canGoBack()) {
-            mWebView.goBack();
+        if(web_view.canGoBack()) {
+            web_view.goBack();
         } else {
             super.onBackPressed();
         }

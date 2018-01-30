@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">EmailView</string>
-    <string name="link">http://vk.com</string>
+    <string name="url_webview">http://vk.com</string>
 </resources>
